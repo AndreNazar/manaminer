@@ -1,0 +1,123 @@
+@import "../../styles/mixins.scss";
+
+.item-page{
+    width: 860px;
+    padding: 1em;
+    box-sizing: border-box;
+    overflow-y: auto;
+    &-header{
+        @include headerStyle();
+    }
+    .main-info-block{
+        display: flex;
+        margin-top: 1em;
+        width: 100%;
+        gap: 2em;
+        .icon{
+            position: relative;
+            .animate-icon{
+                width: 150px;
+                height: 150px;
+                img{
+                    width: 90%;
+                    height: 90%;
+                }
+            }
+            .profit{
+                display: flex;
+                gap: .5em;
+                font-size: 20px;
+                align-items: center;
+                justify-content: center;
+                margin: 0;
+                margin-top: .5em;
+                .coin-icon{
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+            p.learn{
+                position: absolute;
+                margin: 0;
+                font-size: 30px;
+                text-align: center;
+                left: .5em;
+                bottom: 1em;
+                z-index: 5;
+            }
+            .skill-img{
+                position: absolute;
+                width: 50px;
+                height: 50px;
+                top: -10px;
+                left: -10px;
+                z-index: 2;
+                cursor: pointer;
+            }
+        }
+        .info{
+            display: grid;
+            gap: .5em;
+            align-content: start;
+            .info-item{
+                display: flex;
+                align-items: center;
+                align-content: center;
+                gap: .5em;
+                margin: 0;
+                font-size: 24px;
+                .class{
+                    color: #9999bb;
+                    margin: 0;
+                    cursor: pointer;
+                }
+                span{color: #9999bb}
+                .info-formula{
+                    display: flex;
+                    align-items: center;
+                    align-content: center;
+                    box-sizing: border-box;
+                    gap: .5em;
+                    p{margin: 0}
+                    .coin-block{
+                        display: flex;
+                        align-items: center;
+                        gap: .2em;
+                        .coin-icon{
+                            width: 20px;
+                            height: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .description-block{
+        display: flex;
+        gap: 2em;
+        padding: 1em;
+        .description-title{
+            font-size: 24px;
+            margin: 0;
+        }
+        .description-text{
+            margin: 0;
+        }
+
+    }
+    .line-buttons{
+        display: flex;
+        align-items: center;
+        gap: 1em;
+        justify-content: space-between;
+        .create-button{
+            display: flex;
+            align-items: center;
+            gap: 1em;
+        }
+        .coin-icon{
+            width: 18px;
+            height: 18px;
+        }
+    }
+}

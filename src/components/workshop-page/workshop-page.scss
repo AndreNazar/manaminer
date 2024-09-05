@@ -1,0 +1,127 @@
+@import "../../styles/mixins.scss";
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background-color: #2b3255;
+  }
+  ::-webkit-scrollbar-track {
+    display: none;
+  }
+
+.workshop-container {
+    display: flex;
+    width: 1360px;
+    box-sizing: border-box;
+    justify-content: center;
+    flex-wrap: wrap;
+    .header{
+        @include headerStyle();
+    }
+    
+    .workshop-items{
+        display: grid;
+        box-sizing: border-box;
+        padding: 1em;
+        gap: 1em;
+        width: 1360px;
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+        align-content: start;
+        height: calc(100vh - 166px);
+        overflow-y: auto;
+        .workshop-item{
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 1.1em 1.5em;
+            box-sizing: border-box;
+            justify-content: space-between;
+            gap: 2em;
+            cursor: pointer;
+            color: #f1f1f1;
+            text-decoration: none;
+            &.hide-skill{
+                opacity: .4;
+            }
+            &:hover{
+                filter: brightness(1.1);
+            }
+            p.learn{
+                position: absolute;
+                margin: 0;
+                font-size: 16px;
+                text-align: center;
+                left: 1.7em;
+                bottom: 1em;
+                z-index: 5;
+            }
+            .skill-img{
+                position: absolute;
+                top: 1em;
+                left: 1em;
+                z-index: 2;
+            }
+            .item-background{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 110px;
+                z-index: 0;
+            }
+            .animate-icon{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 70px;
+                height: 70px;
+                z-index: 1;
+                
+                img{
+                    width: 90%;
+                    height: 90%;
+                }
+            }
+            .price{
+                display: flex;
+                gap: .5em;
+                z-index: 1;
+                p{
+                    margin: 0;
+                    font-size: 20px;
+                }
+                .coin-icon{
+                    width: 25px;
+                    height: 25px;
+                }
+            }
+            .item-info{
+                flex: 1;
+                z-index: 1;
+                
+                p{margin: 0;}
+                .name{
+                    font-size: 28px;
+                }
+                .profit{
+                    display: flex;
+                    gap: .5em;
+                    font-size: 18px;
+                    align-items: center;
+                    .coin-icon{
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+            }
+            .create-block{
+                z-index: 1;
+            }
+        }
+    }
+}

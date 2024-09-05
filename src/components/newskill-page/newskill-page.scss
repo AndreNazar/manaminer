@@ -1,0 +1,25 @@
+.newskill-container{
+    display: grid;
+    justify-items: center;
+    justify-content: center;
+    .newskill-title{
+        font-size: 28px;
+        text-align: center;
+    }
+    .newskill-image{
+        position: relative;
+        .newskill-main-img{
+            width: 100px;
+            height: 100px;
+        }
+        .aura-container{
+            top: 10px;
+            overflow: visible;
+        }
+    }
+    .newskill-name{
+        padding: .5em;
+    }
+    .button-container{
+    }
+}

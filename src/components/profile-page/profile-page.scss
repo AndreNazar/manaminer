@@ -1,0 +1,64 @@
+@import "../../styles/mixins.scss";
+
+.profile-container{
+    width: 860px;
+    .profile-page-header{
+        @include headerStyle();
+    }
+    .profile-page-body{
+        padding: 1em;
+        display: grid;
+        .profile-page-main-info{
+            display: flex;
+            gap: 1em;
+            .profile-image{
+                img{
+                    width: 100px;
+                    height: 100px;
+                    object-fit: cover;
+                }
+            }
+            .main-discription{
+                .profile-info-item{
+                    font-size: 28px;
+                }
+                .achivment-line{
+                    display: flex;
+                    gap: 1em;
+                    div{
+                        display: flex;
+                        align-items: center;
+                        gap: .5em;
+                        img{
+                            width: 20px;
+                            height: 20px;
+                            object-fit: contain;  
+                        }
+                    }
+                }
+            }
+        }
+        .profile-page-extra-info{
+            display: grid;
+            padding: 1em;
+            box-sizing: border-box;
+            gap: 1em
+        }
+        .profile-info-item{
+            display: flex;
+            align-items: center;
+            gap: .5em;
+            font-size: 24px;
+            p{margin: 0}
+            .title{
+            }
+            .value{
+                color: #9999aa;
+            }
+            .coin-icon{
+                width: 25px;
+                height: 25px;
+            }
+        }
+    }
+}

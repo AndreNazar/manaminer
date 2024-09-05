@@ -1,0 +1,11 @@
+.control-bar{
+    position: absolute;
+    bottom: 1em;
+    padding: 0 1em;
+    box-sizing: border-box;
+    width: 100%;
+    gap: 1em;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+}

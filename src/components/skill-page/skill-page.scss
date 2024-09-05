@@ -1,0 +1,25 @@
+@import "../../styles/mixins.scss";
+
+.skill-container{
+    width: 860px;
+    .profile-page-header{
+        @include headerStyle();
+    }
+    span{
+        color: #999999
+    }
+    .skill-main-info{
+        display: flex;
+        gap: 1em;
+        font-size: 24px;
+        p{margin: .5em}
+        margin-top: 1em;
+        img{
+            width: 100px;
+            height: 100px;
+        }
+    }
+    .skill-main-discription{
+        font-size: 21px;
+    }
+}

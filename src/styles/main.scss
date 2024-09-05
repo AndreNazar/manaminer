@@ -1,0 +1,32 @@
+@import './palette.scss';
+@import './fonts.scss';
+html, body {
+    margin: 0;
+    background-color: $color1;
+    display: flex;
+    justify-content: center;
+}
+img{
+    user-select: none;
+}
+.main-container{
+    position: relative;
+    color: $color2;
+    font-family: "Tiny5";
+    height: 100vh;
+    display: grid;
+    justify-items: center;
+    align-content: start;
+    &.trigger{
+        animation: triggered .7s ease;
+    }
+}
+
+@keyframes triggered {
+    0%{
+        background-color: #ff000066;
+    }
+    100%{
+        background-color: #ff000000;
+    }
+}

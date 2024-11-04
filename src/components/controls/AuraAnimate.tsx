@@ -1,4 +1,4 @@
-import aura_icon from '../../assets/other/aura_sprite.png'
+import aura_icon from "../../assets/other/aura_sprite.png"
 
 const AuraAnimate = () => {
 

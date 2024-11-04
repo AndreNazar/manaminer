@@ -121,3 +121,208 @@
         }
     }
 }
+
+
+
+@media screen and (max-width: 900px) {
+    .item-page{
+        width: 760px !important;
+    }
+}
+@media screen and (max-width: 800px) {
+    .item-page{
+        width: 700px !important;
+    }
+}
+@media screen and (max-width: 700px) {
+    .item-page{
+        width: 600px !important;
+    }
+}
+@media screen and (max-width: 600px) {
+    .item-page{
+        width: 500px !important;
+        &-header{
+            p{
+                font-size: 30px;
+            }
+        }
+        .main-info-block{
+            .icon{
+                .animate-icon{
+                    width: 110px;
+                    height: 110px;
+                }
+                .skill-img{
+                    width: 40px;
+                    height: 40px;
+                }
+            }
+            .profit{
+                font-size: 16px !important;
+            }
+            .info{
+                .info-item{
+                    font-size: 18px;
+                }
+            }
+        }
+        .description-block{
+            .description-title{
+                font-size: 18px;
+            }
+            .description-text{
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .item-page{
+        width: 400px !important;
+        .line-buttons{
+            display: block;
+        }
+        .main-info-block{
+            gap: 1em;
+            .icon{
+                .animate-icon{
+                    width: 90px;
+                    height: 90px;
+                }
+                .skill-img{
+                    width: 35px;
+                    height: 35px;
+                }
+            }
+        }
+        .description-block{
+            display: grid;
+            padding: 1em 0;
+            gap: .5em;
+            .description-text{
+                color: #c1c1c6;
+            }
+        }
+    }
+}
+@media screen and (max-width: 400px) {
+    .item-page{
+        width: 350px !important;
+        &-header{
+            p{
+                font-size: 26px !important;
+            }
+        }
+        .main-info-block{
+            display: grid;
+            justify-content: center;
+            justify-items: center;
+            gap: .5em;
+            .info{
+                width: 100%;
+                .info-item{
+                    width: 100%;
+                    justify-content: space-between;
+                }
+            }
+            .icon{
+                .animate-icon{
+                    width: 200px;
+                    height: 200px;
+                }
+                .skill-img{
+                    width: 60px;
+                    height: 60px;
+                }
+            }
+        }
+        .description-block{
+            display: grid;
+            padding-bottom: 1em;
+            padding-top: 1.5em;
+            gap: .5em;
+            .description-title{
+                font-size: 28px;
+                text-align: center;
+            }
+            .description-text{
+                text-align: justify;
+            }
+        }
+        .control-block{
+            display: grid !important;
+            justify-content: center;
+        }
+    }
+}
+@media screen and (max-width: 350px) {
+    .item-page{
+        .button-container{
+            p{
+                font-size: 18px !important;
+            }
+        }
+        .create-button{
+            display: block !important;
+            p{
+                width: 100%;
+                text-align: center;
+                margin: 0 0 1em 0; 
+            }
+        }
+        width: 300px !important;
+    }
+}
+@media screen and (max-width: 300px) {
+    .item-page{
+        width: 250px !important;
+        &-header{
+            .back-icon{
+                width: 30px !important;
+                height: 30px !important;
+            }
+            p{
+                font-size: 20px !important;
+            }
+        }
+        .main-info-block{
+            .icon{
+                .animate-icon{
+                    width: 150px;
+                    height: 150px;
+                }
+                .skill-img{
+                    width: 45px;
+                    height: 45px;
+                }
+            }
+            .info{
+                &-item{
+                    font-size: 15px !important;
+                }
+            }
+        }
+        .description-block{
+            .description-title{
+                font-size: 22px;
+            }
+            .description-text{
+                text-align: justify;
+                font-size: 12px;
+            }
+        }
+        .control-block{
+            display: grid !important;
+            justify-content: center;
+        }
+    }
+}
+
+@media screen and (max-width: 250px) {
+    .item-page{
+    padding: 0;
+        width: 200px !important;
+    }
+}

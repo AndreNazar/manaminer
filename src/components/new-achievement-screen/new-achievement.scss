@@ -1,0 +1,237 @@
+.new-achievement-container{
+    position: absolute;
+    display: flex;
+    gap: 1em;
+    width: 800px;
+    height: 125px;
+    top: -150px;
+    left: calc(50% - 400px);
+    padding: 2em;
+    box-sizing: border-box;
+    align-items: center;
+    align-content: center;
+    transition: .3s;
+    z-index: 9999;
+    &.active{
+        top: 0;
+    }
+    .new-achievement-bg{
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 97%;
+        z-index: -1;
+    }
+    .new-achievement-icon{
+        width: 80px;
+        height: 80px;
+    }
+    .new-achievement-text{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex: 1;
+        p{margin: 0}
+        
+        .left-block{
+            .text-title{
+                color: #c1c1c1;
+            }
+            .text-name{
+                font-size: 32px;
+            }
+        }
+        .right-block{
+            display: flex;
+            margin-right: 1em;
+            align-items: center;
+            gap: .5em;
+            font-size: 20px;
+            .text-prize-title{
+            }
+            .text-prize-coins{
+                display: flex;
+                align-items: center;
+                gap: .3em;
+                img{
+                    width: 25px;
+                    height: 25px;
+                }
+            }
+            .text-prize-extra{
+                display: flex;
+                align-items: center;
+                color: #c1c1c1;
+                font-size: 24px;
+                gap: .3em;
+                img{
+                    width: 35px;
+                    height: 35px;
+                }
+            }
+        }
+    }
+}
+
+
+@keyframes appearanceFromTop {
+    0%{
+        top: -150px;
+    }
+    100%{
+        top: 0;
+    }
+}
+
+
+
+
+@media screen and (max-width: 800px) {
+    .new-achievement-container{
+        width: 700px !important;
+        left: calc(50% - 350px);
+    }
+}
+@media screen and (max-width: 720px) {
+    .new-achievement-container{
+        width: 600px !important;
+        left: calc(50% - 300px);
+        .new-achievement-text{
+            .left-block{
+                .text-name{
+                    font-size: 24px;
+                }
+            }
+            .right-block{
+                font-size: 16px;
+            }
+        }
+    }
+}
+@media screen and (max-width: 620px) {
+    .new-achievement-container{
+        width: 500px !important;
+        padding: 26px;
+        left: calc(50% - 250px);
+        .new-achievement-text{
+            .left-block{
+                .text-title{
+                    font-size: 14px;
+                }
+                .text-name{
+                    font-size: 20px;
+                }
+            }
+            .right-block{
+                font-size: 14px;
+            }
+        }
+    }
+}
+@media screen and (max-width: 520px) {
+    .new-achievement-container{
+        width: 400px !important;
+        left: calc(50% - 200px);
+        gap: .5em;
+        .new-achievement-icon{
+            width: 60px;
+            height: 60px;
+        }
+        .new-achievement-text{
+            .left-block{
+                .text-title{
+                    font-size: 14px;
+                }
+                .text-name{
+                    font-size: 20px;
+                }
+            }
+            .right-block{
+                display: block;
+                font-size: 14px;
+                .text-prize-title{
+                    text-align: center;
+                }
+                .text-prize-coins{
+                    img{
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 420px) {
+    .new-achievement-container{
+        width: 300px !important;
+        padding: 26px 16px;
+        height: 100px;
+        left: calc(50% - 150px);
+        gap: .5em;
+        .new-achievement-icon{
+            width: 50px;
+            height: 50px;
+        }
+        .new-achievement-text{
+            .left-block{
+                .text-title{
+                    font-size: 12px;
+                }
+                .text-name{
+                    font-size: 16px;
+                }
+            }
+            .right-block{
+                display: block;
+                font-size: 12px;
+                .text-prize-title{
+                    text-align: center;
+                }
+                .text-prize-coins{
+                    img{
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 320px) {
+    .new-achievement-container{
+        width: 90% !important;
+        padding: 26px 16px;
+        height: 100px;
+        left: 5%;
+        gap: .5em;
+        .new-achievement-icon{
+            width: 45px;
+            height: 45px;
+        }
+        .new-achievement-text{
+            .left-block{
+                .text-title{
+                    font-size: 10px;
+                }
+                .text-name{
+                    font-size: 14px;
+                }
+            }
+            .right-block{
+                display: block;
+                font-size: 10px;
+                .text-prize-title{
+                    text-align: center;
+                }
+                .text-prize-coins{
+                    img{
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+            }
+        }
+    }
+}

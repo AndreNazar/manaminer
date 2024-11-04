@@ -1,5 +1,5 @@
 import { useMemo } from "react"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { NavLink } from "react-router-dom"
 import { IWItem } from "../../types"
 import AnimateIcon from "./AnimateIcon"

@@ -1,6 +1,6 @@
-import { useEffect, useMemo, useState } from "react"
+import { useEffect, useMemo, useRef, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { NavLink, useLocation, useNavigate, useParams } from "react-router-dom"
+import { NavLink, useLocation, useParams } from "react-router-dom"
 import { IInventory, IWindowSettings, IWItem } from "../../types"
 import "./item-page.scss"
 import back_icon from "../../assets/buttons/back.png"
@@ -13,9 +13,10 @@ import { openWindow } from "../../redux/noteReducer"
 
 const ItemPage = () => {
 
-    const location = useLocation();
+    const location = useLocation()
     const { idWI_id } = useParams()
     const dispatch = useDispatch()
+    const itempageref:any = useRef()
 
     const [info, setInfo] = useState<IWItem & Partial<IInventory>>()
     const [idWI, setIdWI] = useState<string>("")
@@ -24,10 +25,11 @@ const ItemPage = () => {
     
     const inventory = useSelector((s:any) => s.inventory)
     const windowSettings: IWindowSettings = useSelector((s: any) => s.windowSettings)
+    const stepLearnScreen: number = useSelector((s: any) => s.stepLearnScreen)
     const isWorkshop = location.pathname[1] === "w"
 
     const getBack = useMemo(() => {
-        if(windowSettings.act === "all_items") return "/23-" + windowSettings.workshopItem![1]
+        if(windowSettings.act === "all_items") return "/i/23-" + windowSettings.workshopItem![1]
         else return isWorkshop ? "/workshop" : "/"
     }, [windowSettings.act])
 
@@ -61,12 +63,16 @@ const ItemPage = () => {
         
     }, [idWI_id, inventory])
 
+    useEffect(() => {
+        stepLearnScreen === 17 && itempageref.current.scrollTo(0, window.innerHeight);
+    }, [itempageref, stepLearnScreen])
+
 
     return (
         info 
-        ? <div className="item-page">
+        ? <div ref={itempageref} className="item-page">
             <div className="item-page-header">
-                <NavLink to={getBack}><img src={back_icon} alt="" /></NavLink>
+                <NavLink to={getBack}><img className="back-icon" src={back_icon} alt="" /></NavLink>
                 <p>{info.name}</p>
             </div>
             <MainInfoBlock isWorkshop={isWorkshop} info={info} />

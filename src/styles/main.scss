@@ -3,11 +3,12 @@
 html, body {
     margin: 0;
     background-color: $color1;
-    display: flex;
-    justify-content: center;
+    
 }
 img{
     user-select: none;
+    image-rendering: pixelated;
+      
 }
 .main-container{
     position: relative;

@@ -14,6 +14,8 @@ const Window = () => {
 
     const dispatch = useDispatch()
     const windowSettings: IWindowSettings = useSelector((s: any) => s.windowSettings)
+    const stepLearnScreen = useSelector((s:any) => s.stepLearnScreen)
+    const isLearn = useMemo(() => stepLearnScreen === 6 || stepLearnScreen === 13 || stepLearnScreen === 18, [stepLearnScreen])
 
     const closeWindowHandler = () => dispatch(closeWindow())
 
@@ -39,10 +41,10 @@ const Window = () => {
 
 
   return (
-    <div className="window-container" onClick={closeWindowHandler}>
+    <div className={"window-container" + (isLearn ? " window-learn-screen" : "")} onClick={() => isLearn ? null : closeWindowHandler()}>
       <div className="window-block" onClick={e => e.stopPropagation()}>
         <img className="window-block-background" src={window_bg} alt="" />
-        <img onClick={closeWindowHandler} className="window-block-close" src={window_close} alt="" />
+        <img onClick={() => isLearn ? null : closeWindowHandler()} className="window-block-close" src={window_close} alt="" />
         <div className="window-content">
           <div className="window-header">
             {windowSettings.act === "all_items" && <img onClick={() => dispatch(openWindow({act: "open1", workshopItem: [windowSettings.workshopItem![0], windowSettings.workshopItem![1]]}))} src={back_icon} alt="" />}

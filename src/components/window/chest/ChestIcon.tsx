@@ -1,6 +1,6 @@
 import AnimateIcon from "../../controls/AnimateIcon"
-import chest_open_icon from '../../../assets/workshop/other/chest_2_open.png'
-import chest_closed_icon from '../../../assets/workshop/other/chest_2_closed.png'
+import chest_open_icon from "../../../assets/workshop/other/chest_2_open.png"
+import chest_closed_icon from "../../../assets/workshop/other/chest_2_closed.png"
 import { useSelector } from "react-redux"
 import { IPrize } from "../../../types"
 

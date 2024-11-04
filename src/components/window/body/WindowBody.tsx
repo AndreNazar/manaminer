@@ -37,10 +37,10 @@ const WindowBody = ({windowSettings}: {windowSettings: IWindowSettings}) => {
     return item && <div className="window-body">
         <MainIcon item={item!} />
         {needMana && <Level up={isUp} item={item} />}
-        {isDelete && <DeleteText item={item} />}
+        {isDelete && <DeleteText />}
         {isAccept && <AcceptText />}
         {item.profit > 0 && <Profit up={isUp} item={item} />}
-        <MainButton item={item!} windowSettings={windowSettings} />
+      <MainButton item={item!} windowSettings={windowSettings} />
         {needMana && <Formula up={isUp} item={item!} />}
     </div>
 }

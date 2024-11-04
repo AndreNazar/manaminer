@@ -1,5 +1,3 @@
-import { useDispatch, useSelector } from "react-redux"
-
 import "./rating-page.scss"
 
 function RatingPage() {

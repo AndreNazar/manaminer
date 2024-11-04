@@ -1,3 +1,4 @@
+
 const getIdSkill = (id: number) => {
     switch (id) {
       case 50: return 7

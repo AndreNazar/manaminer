@@ -29,8 +29,8 @@ const EmptyWindowBody = ({windowSettings}: {windowSettings: IWindowSettings}) =>
     return <div className={"window-body empty-body" + (isCtgs ? "" : " all-items")}>
         {isCtgs 
         ? ctgs.map((ctg, i) => <p className="empty-body-ctg-item" key={i} style={{color: ctg[1]}}>{ctg[0]}</p>)
-        : all_items.map((id, i) => <NavLink 
-        to={`/${id}`} 
+        : all_items.map((id, i) => <NavLink
+        to={`/i/${id}`} 
         key={i} 
         onClick={() => dispatch(changeActiveWindow())}
         title={getItem(id)!.name} 

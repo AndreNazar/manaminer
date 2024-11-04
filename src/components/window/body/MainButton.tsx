@@ -1,7 +1,7 @@
 import { useMemo } from "react"
 import { IInventory, IWindowSettings, IWItem } from "../../../types"
 import { useDispatch, useSelector } from "react-redux"
-import { acceptBook, buyItem, closeWindow, deleteItem, triggeredActive, upItem } from "../../../redux/noteReducer"
+import { acceptBook, buyItem, deleteItem, nextStepScreen, triggeredActive, upItem } from "../../../redux/noteReducer"
 import MButton from "../../controls/MButton"
 import { useNavigate } from "react-router-dom"
 import getIdSkill from "../../../functions/getIdSkill"
@@ -16,6 +16,7 @@ const MainButton = (
     const deleteActive = useSelector((s: any) => s.deleteActive)
     const inventory = useSelector((s: any) => s.inventory)
     const skills = useSelector((s: any) => s.skills)
+    const stepLearnScreen = useSelector((s: any) => s.stepLearnScreen)
 
     const isDelete = useMemo(() => windowSettings.act === "delete", [windowSettings.act])
 
@@ -35,6 +36,7 @@ const MainButton = (
         switch (windowSettings.act) {
             case "create": {
                 if(inventory.filter((item: IInventory) => item.id === -1).length){
+                    if(stepLearnScreen === 6 || stepLearnScreen === 13) dispatch(nextStepScreen())
                     dispatch(buyItem({index: item.id, price: item.price, formula: item.formula}))
                 }else{
                     dispatch(triggeredActive({type: "treasury", title: "Сокровищница заполнена!"}))
@@ -42,6 +44,10 @@ const MainButton = (
                 break;
             }
             case "up": {
+                if(stepLearnScreen === 18){
+                    dispatch(nextStepScreen())
+                    navigate("/")
+                }
                 dispatch(upItem({id_II: item.id, price: item.price, level: item.level!, max_level: item.max_level}))
                 break;
             }

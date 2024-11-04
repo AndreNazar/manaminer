@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux"
-import { NavLink, useNavigate, useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import getSkillImg from "../../functions/getSkillImg"
 import getSkillName from "../../functions/getSkillName"
 import { useMemo } from "react"
@@ -18,7 +18,7 @@ const SkillPage = () => {
 
     return <div className="skill-container">
         <div className="profile-page-header">
-            <img onClick={() => navigate(-1)} src={back_icon} alt="" />
+            <img onClick={() => navigate(-1)} className="back-icon" src={back_icon} alt="" />
             <p>Навык</p>
         </div>
         <div className="skill-main-info">

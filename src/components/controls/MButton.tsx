@@ -1,6 +1,6 @@
 import "./controls.scss"
-import button_XXL from "../../assets/buttons/xxl/buttonXXL.png" 
-import red_button_XXL from "../../assets/buttons/xxl/redbuttonXXL.png"
+import button_img from "../../assets/buttons/button.png" 
+import redbutton_img from "../../assets/buttons/redbutton.png"
 import coin_icon from "../../assets/other/coin.png"
 
 const MButton = ({children, isCoin, onClick, styletype, deletestyle}: 
@@ -8,7 +8,7 @@ const MButton = ({children, isCoin, onClick, styletype, deletestyle}:
 
   return (
     <div onClick={onClick} className={"button-container " + styletype}>
-      <img className="button-bg" src={deletestyle ? red_button_XXL : button_XXL} alt="" />
+      <img className="button-bg" src={deletestyle ? redbutton_img : button_img} alt="" />
       <p>
       {isCoin && <img className="coin-icon" src={coin_icon} alt="" />}
         {children}

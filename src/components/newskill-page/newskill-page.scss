@@ -23,3 +23,25 @@
     .button-container{
     }
 }
+
+@media screen and (max-width: 400px) {
+    .newskill-title{
+        p{
+            font-size: 24px;
+        }
+    }
+    .newskill-container{
+        .button-container{
+            width: 250px !important;
+            min-width: 250px !important;
+            height: 76px !important;
+            img{
+                width: 250px !important;
+                height: 76px !important;
+            }
+            p{
+
+            }
+        }
+    }
+}

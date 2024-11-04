@@ -49,3 +49,12 @@ export interface IWItem {
     max_level: number
     formula: number[]
 }
+
+export interface IAchievementItem{
+    id: number
+    name: string
+    description: string
+    icon: string
+    prize: number
+    isPocket: boolean
+}

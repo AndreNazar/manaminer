@@ -1,5 +1,5 @@
 import { useMemo } from "react"
-import { IInventory, IWItem, TActs } from "../../../types"
+import { IInventory, IWItem } from "../../../types"
 
 const Level = ({up, item}: {up: boolean, item: IWItem & Partial<IInventory>}) => {
 

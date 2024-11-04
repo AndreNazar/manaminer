@@ -6,6 +6,11 @@
     width: 100%;
     background-color: #0008;
     z-index: 99;
+    &.window-learn-screen{
+        position: initial;
+        background-color: transparent;
+        z-index: 301;
+    }
     .window-block{
         position: absolute;
         top: 50%;
@@ -168,5 +173,58 @@
     }
     100% {
         object-position: -800px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .window-container{
+        .window-block{
+            width: 350px;
+            .window-content{
+                .empty-body{
+                    &.all-items{
+                        display: grid;
+                        grid-template-columns: 1fr 1fr 1fr 1fr;
+                        width: 310px;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 400px) {
+    .window-container{
+        .window-block{
+            width: 300px;
+            height: 350px;
+            .window-content{
+                .window-header{
+                    padding: 1em;
+                }
+                .window-body{
+                    height: 260px;
+                }
+                .chest-body{
+                    height: 260px;
+                }
+                
+                .empty-body{
+                    &.all-items{
+                        display: grid;
+                        grid-template-columns: 1fr 1fr 1fr 1fr;
+                        width: 260px;
+                        height: 250px;
+                        .animate-icon{
+                            display: flex;
+                            align-content: center;
+                            img{
+                                width: 43px;
+                                height: 43px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }

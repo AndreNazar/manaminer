@@ -3,11 +3,15 @@ import { IInventory, IPrize, ITabs, ITrigger, IWindowSettings, IWItem, TActs, TT
 import calcPrice from "../functions/calcPrice"
 import workshopItems from "../workshop_items"
 import getIdSkill from "../functions/getIdSkill"
+import achievementItems from "../achievement_items"
 
 const initialState = {
-  coins: 200,
+  coins: 160,
   skills: [1],
+  amount_create: 0,
+  amount_open_chests: 0,
   learns: [],
+  achievements: [],
   trigger: {
     status: false, 
     title: "",
@@ -59,9 +63,6 @@ const noteReducer = createSlice({
   name: "app",
   initialState: initialState,
   reducers: {
-    incremented: (state: any) => {
-      state.value += 1
-    },
 
     buyItem: (state: any, action: { payload: { index: number; price: number; formula: number[] } }) => {
       const new_coins = +(+state.coins - +action.payload.price)
@@ -95,6 +96,35 @@ const noteReducer = createSlice({
             level: 1,
           }
           state.coins = new_coins.toFixed(6).toString().replace(/0+$/, "")
+          if(state.stepLearnScreen > 20 || state.stepLearnScreen < 0) state.amount_create += 1
+
+          if(action.payload.formula.includes(57) || action.payload.formula.includes(58)){ // Ачивка мануалы
+            if(!state.achievements.includes(11)){
+              state.achievements = [11, ...state.achievements]
+              state.coins += 606060
+            }
+          }
+
+          if(action.payload.formula.includes(56)){ // Ачивка руны
+            if(!state.achievements.includes(12)){
+              state.achievements = [12, ...state.achievements]
+              state.coins += 606060
+            }
+          }
+
+          if(action.payload.formula.includes(18)){ // Ачивка горна
+            if(!state.achievements.includes(21)){
+              state.achievements = [21, ...state.achievements]
+              state.coins += 2605
+            }
+          }
+
+          if(action.payload.formula.includes(83)){ // Ачивка карт знаний
+            if(!state.achievements.includes(22)){
+              state.achievements = [22, ...state.achievements]
+              state.coins += 4343
+            }
+          }
 
           //// CLOSE_WINDOW
           const settings: IWindowSettings = {
@@ -246,8 +276,9 @@ const noteReducer = createSlice({
 
       chestItems = chestItems.map((chi) => {
         const empty_index = state.inventory.findIndex((item: any) => item.id === -1)
+        let randMax = state.coins > 50000 ? 1562 : 1529
 
-        const randPercent = Math.floor(Math.random() * 1562)
+        const randPercent = Math.floor(Math.random() * randMax)
         const chest_items28:number[] = [25, 26, 27]
         const chest_items20:number[] = [28, 29]
         const chest_items15:number[] = [31, 32, 33, 34]
@@ -271,13 +302,9 @@ const noteReducer = createSlice({
         else if(randPercent >= 1550 && randPercent < 1560) randId = chest_items3[Math.floor(Math.random() * chest_items3.length)]
         else if(randPercent >= 1561) randId = chest_items1[Math.floor(Math.random() * chest_items1.length)]
         
-        
         if(randId !== -1) currentItem = workshopItems.find((item: IWItem) => item.id === randId)!
 
         if(!currentItem) return chi
-
-        console.log(randId)
-        console.log(randPercent)
 
         state.inventory[empty_index] = {
           id: +Math.floor(Date.now() - (empty_index + Math.random() * 1000)) ,
@@ -293,6 +320,8 @@ const noteReducer = createSlice({
           type: currentItem.type,
         }
       })
+      
+      state.amount_open_chests += 1
 
       state.prizeList = chestItems
 
@@ -322,13 +351,48 @@ const noteReducer = createSlice({
 
     },
     nextStepScreen: (state: any) => {state.stepLearnScreen = state.stepLearnScreen + 1},
-    prevStepScreen: (state: any) => {state.stepLearnScreen = state.stepLearnScreen - 1}
+    prevStepScreen: (state: any) => {state.stepLearnScreen = state.stepLearnScreen - 1},
+    addAchievement: (state: any, action: {payload: number}) => {
+      
+      if(!state.achievements.includes(action.payload)){
+        achievementItems.forEach(element => {
+          if(element.id === action.payload) {
+            state.coins += element.prize
+          if(element.isPocket) {
+            for (let i = 0; i < 10; i++) 
+              state.inventory.push({ id: -1, count_profit: 0 })
+          }
+          }
+        })
+        if(action.payload === 1){ // после обучения добавляются сундук и ключ в сокровищницу
+          const empty_index1 = state.inventory.findIndex((item: any) => item.id === -1)
+          const empty_index2 = state.inventory.findIndex((item: any, index: number) => item.id === -1 && empty_index1 !== index)
+
+          state.inventory[empty_index1] = {
+            id: +Math.floor(Date.now() - (empty_index1 + Math.random() * 1000)),
+            id_WI: 23,
+            count_profit: 0,
+            shift: +Math.floor(Math.random() * 100),
+            level: 1,
+          }
+          state.inventory[empty_index2] = {
+            id: +Math.floor(Date.now() - (empty_index2 + Math.random() * 1000)),
+            id_WI: 24,
+            count_profit: 0,
+            shift: +Math.floor(Math.random() * 100),
+            level: 1,
+          }
+        }
+
+
+        state.achievements = [action.payload, ...state.achievements]
+      }
+    },
     
   },
 })
 
 export const { 
-  incremented, 
   buyItem, 
   setTabs, 
   pushMana, 
@@ -345,6 +409,7 @@ export const {
   acceptBook,
   nextStepScreen, 
   prevStepScreen,
+  addAchievement,
 } = noteReducer.actions
 
 export default noteReducer

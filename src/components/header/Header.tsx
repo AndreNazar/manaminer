@@ -37,7 +37,7 @@ const Header = () => {
             </NavLink>
             <div className={"coins" + ((trigger.type === "coins") ? " active" : "")}>
                 <img src={coin_icon} alt="" /> 
-                <p>{coins}</p>
+                <p>{coins.toString().replace(/\.$/, "")}</p>
             </div>
         </div>
     )

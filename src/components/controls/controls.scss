@@ -28,7 +28,7 @@
     }
     .button-bg{
         position: absolute;
-        width: 600px;
+        width: 300px;
         height: 85px;
         top: 0;
         left: 0;
@@ -53,13 +53,16 @@
         }
     }
     .button-bg{
-        width: 300px;
+        width: 150px;
         height: 43px;
     }
     p{
         top: 15%;
         font-size: 20px;
     }
+}
+._learn_type{
+    z-index: 300;
 }
 ._window_type{
     margin: 1em 0;
@@ -75,7 +78,7 @@
     width: 250px;
     height: 50px;
     bottom: 25px;
-    left: -150px;
+    left: -250px;
     opacity: 0;
     object-fit: cover;
     box-sizing: border-box;
@@ -133,3 +136,5 @@
     50% {opacity: .4}
     100% {opacity: .3}
 }
+
+

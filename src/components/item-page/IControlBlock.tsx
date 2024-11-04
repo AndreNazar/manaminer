@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
-import { IInventory, IWItem } from "../../types"
+import { IInventory } from "../../types"
 import MButton from "../controls/MButton"
-import { openWindow, triggeredActive } from "../../redux/noteReducer"
+import { nextStepScreen, openWindow, triggeredActive } from "../../redux/noteReducer"
 import coin_icon from "../../assets/other/coin.png"
 import { useMemo } from "react"
 import calcPrice from "../../functions/calcPrice"
@@ -9,6 +9,7 @@ import calcPrice from "../../functions/calcPrice"
 const IControlBlock = ({ info, idWI, idII }: { info: any, idWI: string, idII: string }) => {
   const dispatch = useDispatch()
   const inventory = useSelector((s: any) => s.inventory)
+  const stepLearnScreen = useSelector((s:any) => s.stepLearnScreen)
 
   const openChestHundler = () => {
     const existsKey = inventory.some((item: IInventory) => +item.id_WI === 24)
@@ -23,6 +24,7 @@ const IControlBlock = ({ info, idWI, idII }: { info: any, idWI: string, idII: st
   }
 
   const upItemHundler = () => {
+    if(stepLearnScreen === 17) dispatch(nextStepScreen())
     dispatch(openWindow({act: "up", workshopItem: [+idWI, +idII]}))
   }
 
@@ -50,7 +52,7 @@ const IControlBlock = ({ info, idWI, idII }: { info: any, idWI: string, idII: st
     <div className="control-block">
       <div className="line-buttons">
       {!isMaxLevel && <div className="create-button">
-        <MButton styletype={"_workshop_type"} onClick={upItemHundler}>
+        <MButton styletype={"_workshop_type" + (stepLearnScreen === 17 ? " _learn_type" : "")} onClick={upItemHundler}>
           Улучшить
         </MButton>
         <p>Нужно: <img className="coin-icon" src={coin_icon} alt="" /> {getPrice}</p>

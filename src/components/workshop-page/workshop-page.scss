@@ -20,6 +20,9 @@
     flex-wrap: wrap;
     .header{
         @include headerStyle();
+        &.learn-highlight{
+            z-index: 300;
+        }
     }
     
     .workshop-items{
@@ -122,6 +125,260 @@
             .create-block{
                 z-index: 1;
             }
+        }
+        .learn-item-block{
+            z-index: 300;
+            .button-container{
+                p{
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 1360px) {
+    .workshop-container {
+        width: 1280px;
+        .workshop-items{
+            width: 1280px;
+            .name{
+                font-size: 22px !important;
+            }
+        }
+    }
+}
+@media screen and (max-width: 1280px) {
+    .workshop-container {
+        width: 1100px;
+        .workshop-items{
+            width: 1100px;
+        }
+    }
+}
+@media screen and (max-width: 1100px) {
+    .workshop-container {
+        width: 800px;
+        .workshop-items{
+            grid-template-columns: 1fr;
+            width: 800px;
+        }
+    }
+}
+@media screen and (max-width: 800px) {
+    .workshop-container {
+        width: 700px;
+        .workshop-items{
+            width: 700px;
+        }
+    }
+}
+@media screen and (max-width: 700px) {
+    .workshop-container {
+        width: 600px;
+        .workshop-items{
+            width: 600px;
+        }
+    }
+}
+@media screen and (max-width: 600px) {
+    .workshop-container {
+        width: 500px;
+        .workshop-items{
+            width: 500px;
+        }
+    }
+}
+@media screen and (max-width: 500px) {
+    .workshop-container {
+        width: 450px;
+        .workshop-items{
+            width: 450px;
+            .workshop-item{
+                .learn{
+                    left: 1.9em !important;
+                    bottom: 1.3em !important;
+                    font-size: 13px !important;
+                }
+                .animate-icon{
+                    width: 50px;
+                    height: 50px;
+                }
+                .item-background{
+                    height: 90px;
+                }
+                .item-info{
+                    .name{
+                        font-size: 18px !important;
+                    }
+                }
+                ._workshop_type{
+                    width: 120px;
+                    min-width: 120px;
+                    height: 35px;
+                    min-height: 35px;
+                    .button-bg{
+                        width: 120px;
+                        height: 34px;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 450px) {
+    .tab-container{
+        height: 41px !important;
+        padding-bottom: 0 !important;
+        
+        .scroll-button{
+            top: 7px !important;
+            &.scroll-button-left {
+                left: 1em;
+            }
+            &.scroll-button-right {
+                left: calc(100% - 30px - 1em);
+            }
+        }
+        .tab-items{
+            gap: 5.5em !important;
+            .tab-item{
+                width: 120px !important;
+                min-width: 120px !important;
+                height: 35px !important;
+                p{
+                    left: 60px !important;
+                }
+                &.active{
+                    height: 43px !important;
+                    margin-left: 58px;
+                }
+            }
+        }
+    }
+    .workshop-container {
+        width: 400px;
+        .workshop-items{
+            width: 400px;
+            gap: .3em;
+            height: calc(100vh - 145px);
+            .workshop-item{
+                height: 80px;
+                .learn{
+                    left: 2.6em !important;
+                    bottom: 1.7em !important;
+                    font-size: 10px !important;
+                }
+                .animate-icon{
+                    width: 40px;
+                    height: 40px;
+                }
+                .skill-img{
+                    width: 24px;
+                    height: 24px;
+                }
+                .item-background{
+                    height: 80px;
+                }
+                .coin-icon{
+                    width: 14px !important;
+                    height: 14px !important;
+                }
+                .item-info{
+                    .name{
+                        font-size: 16px !important;
+                    }
+                    .profit{
+                        font-size: 12px !important;
+                    }
+                    
+                }
+                ._workshop_type{
+                    width: 90px;
+                    min-width: 90px;
+                    height: 28px;
+                    min-height: 28px;
+                    .button-bg{
+                        width: 90px;
+                        height: 27px;
+                    }
+                    p{
+                        font-size: 14px;
+                    }
+                    
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 400px) {
+    .workshop-container {
+        width: 350px;
+        .header{
+            p{
+                font-size: 26px;
+            }
+        }
+        .workshop-items{
+            padding: .5em;
+            width: 350px;
+            .workshop-item{
+                gap: 1em;
+            }
+        }
+    }
+}
+@media screen and (max-width: 350px) {
+    .workshop-container {
+        width: 300px;
+        .workshop-items{
+            width: 300px;
+            .workshop-item{
+                padding: 1.1em 1em;
+                .learn{
+                    left: 1.8em !important;
+                }
+                .item-info{
+                    .name{
+                        font-size: 14px !important;
+                    }
+                }
+            }
+            ._workshop_type{
+                width: 72px !important;
+                min-width: 72px !important;
+                height: 22px !important;
+                min-height: 22px !important;
+                .button-bg{
+                    width: 72px !important;
+                    height: 22px !important;
+                }
+                p{
+                    font-size: 12px !important;
+                }
+                
+            }
+        }
+    }
+}
+@media screen and (max-width: 300px) {
+    .workshop-container {
+        width: 250px;
+        .workshop-items{
+            width: 250px;
+        }
+    }
+}
+@media screen and (max-width: 250px) {
+    .workshop-container {
+        width: 200px;
+        .header{
+            p{
+                font-size: 22px;
+            }
+        }
+        .workshop-items{
+            width: 200px;
         }
     }
 }

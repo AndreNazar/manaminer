@@ -2,19 +2,67 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    right: 0;
     height: 100%;
     z-index: 200;
     display: grid;
+    padding: 2em;
+    box-sizing: border-box;
     align-content: center;
     justify-content: center;
+    justify-items: center;
+    .learn-block-container{
+        display: grid;
+        padding: 2em;
+        box-sizing: border-box;
+        align-content: center;
+        justify-content: center;
+        justify-items: center;
+    }
+    &.hide-screen-light{
+        background-color: #0000;
+        .learn-block-container{
+            background-color: #000d;
+        }
+    }
     &.hide-screen-base{background-color: #0009}
     &.hide-screen-dark{background-color: #000d}
+    .create-item-price{
+        position: absolute;
+        display: flex;
+        align-items: center;
+        top: calc(50% + 113px);
+        left: 50%;
+        transform: translateX(-50%);
+        width: 146px;
+        min-width: 146px;
+        max-width: 146px;
+        &.create-staff{top: calc(50% + 118px)}
+        &.nostaff{
+            width: 231px;
+            min-width: 231px;
+            max-width: 231px;
+        }
+        .coin{
+            width: 20px;
+            margin: 0 .5em;
+        }
+        .plus{
+            margin: 0 .3em;
+            font-size: 24px;
+        }
+        .staff{
+            width: 30px;
+            border: 2px solid rgb(57, 181, 74);
+            box-sizing: border-box;
+        }
+    }
     p.intro-style{
         width: 400px;
         text-align: center;
         margin: .5em;
-        font-size: 20px;
+        font-size: 16px;
+
         &.big-p{
             font-size: 36px;
         }
@@ -26,14 +74,55 @@
         padding: .5em 1em;
         margin-top: 1em;
         background-color: #ddd;
-        border-radius: 10px;
+        border-radius: 7px;
         text-align: center;
-        font-size: 32px;
+        font-size: 22px;
         box-sizing: border-box;
         color: #555;
         cursor: pointer;
         &:hover{
             background-color: #fff;
+        }
+    }
+}
+
+
+@media screen and (max-width: 500px) {
+    .learn-screen{
+        .intro-style{
+            width: 300px !important;
+        }
+        .big-p{
+            font-size: 30px !important;
+        }
+        .discr-p{
+            font-size: 14px !important;
+        }
+    }
+}
+@media screen and (max-width: 400px) {
+    .learn-screen{
+        .create-item-price{
+            top: calc(50% + 108px) !important;
+            &.nostaff{
+                top: calc(50% + 112px) !important;
+            }
+        }
+    }
+}
+@media screen and (max-width: 350px) {
+    .learn-screen{
+        .intro-style{
+            width: 90% !important;
+        }
+        .big-p{
+            font-size: 26px !important;
+        }
+        .discr-p{
+            font-size: 12px !important;
+        }
+        .learn-button{
+            font-size: 16px;
         }
     }
 }

@@ -1,5 +1,5 @@
 import Header from "./components/header/Header"
-import { Routes, Route, useNavigate } from "react-router-dom"
+import { Routes, Route } from "react-router-dom"
 import InventoryPage from "./components/inventory-page/InventoryPage"
 import WorkshopPage from "./components/workshop-page/WorkshopPage"
 import "./styles/main.scss"
@@ -20,7 +20,7 @@ import PocketInfo from "./components/achievement-page/PocketInfo"
 import NewAchievementScreen from "./components/new-achievement-screen/NewAchievementScreen"
 import ErrorPage from "./components/error-page/ErrorPage"
 
-declare var YaGames: any;
+//declare var YaGames: any;
 
 function App() {
 
@@ -30,7 +30,6 @@ function App() {
   const inventory: IInventory[] = useSelector((s: any) => s.inventory)
   const amount_create = useSelector((s: any) => s.amount_create)
   const amount_open_chests = useSelector((s: any) => s.amount_open_chests)
-  const navigate = useNavigate()
 
   const [time, setTime] = useState(0)
 
@@ -68,7 +67,7 @@ function App() {
     if(amount_create === 500) dispatch(addAchievement(18))
     if(amount_create === 1000) dispatch(addAchievement(19))
 
-    if(amount_create % 5 === 0) YaGames.init().then((ysdk:any) => ysdk.adv.showFullscreenAdv())
+    //if(amount_create % 5 === 0) YaGames.init().then((ysdk:any) => ysdk.adv.showFullscreenAdv())
 
   }, [amount_create])
 
@@ -119,7 +118,7 @@ function App() {
 
   useEffect(() => {
     if(!!localStorage.getItem("learn") === true) dispatch(prevStepScreen())
-    YaGames.init().then(() => navigate("/#"))
+    //YaGames.init().then(() => navigate("/#"))
   }, [])
 
 
